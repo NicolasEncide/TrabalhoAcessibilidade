@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessibilidade</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        :root{
+            --padding: 10px;
+        }
+        body{
+            position: relative;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14pt;
+        }
+        header{
+            text-align: center;
+        }
+        .texto{
+            width: 60%;
+            text-align: justify;
+        }
+        .conteudo{
+            border: 3px solid black;
+            display: flex;
+            width: 60%;
+            padding: var(--padding);
+            position: relative;
+            gap: 16px;
+        }
+        #BCSDimg{
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            filter: blur(0px) saturate(1) contrast(1) brightness(1);
+        }
+        .imagem{
+            display: flex;
+            width: 40%;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Acessibilidade</h1>
+    </header>
+    <hr>
+    <main>
+        <section>
+            <h2>Brilho, Constraste, Saturação e Desfoque</h2>
+            <div class="conteudo">
+                <div class="texto">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, cupiditate beatae vitae quidem impedit vel corporis fugiat ratione fuga, soluta quia. Consectetur iste deserunt et fuga minus ea provident nobis?
+                </div>
+                <div class="imagem">
+                    <label for="efeito">Brilho: </label>
+                    <input type="range" id="brilhoRange" min="0" max="2" step="0.1" value="1">
+                    <label for="efeito">Constraste: </label>
+                    <input type="range" id="constrasteRange" min="0" max="2" step="0.1" value="1">
+                    <label for="efeito">Saturação: </label>
+                    <input type="range" id="saturacaoRange" min="0" max="2" step="0.1" value="1">
+                    <label for="efeito">Desfoque: </label>
+                    <input type="range" id="desfoqueRange" min="0" max="2" step="0.1" value="1">
+                    <img src="Images/teste.jpg" alt="Imagem aqui" id="BCSDimg">
+                </div>
+            </div>
+
+            <h2>Tamanho da Fonte</h2>
+            <div class="conteudo" id="tamanhoFonte">
+                <div class="texto">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, cupiditate beatae vitae quidem impedit vel corporis fugiat ratione fuga, soluta quia. Consectetur iste deserunt et fuga minus ea provident nobis?</p>
+                </div>
+                <div class="imagem">
+                    <label for="efeito">Tamanho da Fonte: </label>
+                    <button id="buttonAumentar">Aumentar</button>
+                    <button id="buttonDiminuir">Diminuir</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="navegacao">
+            <nav>
+                <ul>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </nav>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script>
+        //#region Brilho, Saturação, Desfoque, Contraste    
+        const brilhoRange = document.getElementById("brilhoRange");
+        const saturacaoRange = document.getElementById("saturacaoRange");
+        const desfoqueRange = document.getElementById("desfoqueRange");
+        const constrasteRange = document.getElementById("constrasteRange");
+
+        brilhoRange.addEventListener('input', () => {
+            document.getElementById("BCSDimg").style.filter = `brightness(${brilhoRange.value})`;
+        });
+
+        saturacaoRange.addEventListener('input', () => {
+            document.getElementById("BCSDimg").style.filter = `saturate(${saturacaoRange.value})`;
+        });
+
+        desfoqueRange.addEventListener('input', () => {
+            document.getElementById("BCSDimg").style.filter = `blur(${desfoqueRange.value}px)`;
+        });
+
+        constrasteRange.addEventListener('input', () => {
+            document.getElementById("BCSDimg").style.filter = `contrast(${constrasteRange.value})`;
+        });
+
+        //#endregion
+        //#region Tamanho da Fonte
+        let tamanhoOriginal = 14;
+
+        const buttonAumentar = document.getElementById("buttonAumentar");
+        const buttonDiminuir = document.getElementById("buttonDiminuir");
+
+        buttonAumentar.addEventListener('click', function(){
+            if (tamanhoOriginal < 22){tamanhoOriginal += 2;}
+            document.getElementById("tamanhoFonte").style.fontSize = tamanhoOriginal + "pt";
+        });
+
+        buttonDiminuir.addEventListener('click', function(){
+            if (tamanhoOriginal > 8){tamanhoOriginal -= 2;}
+            document.getElementById("tamanhoFonte").style.fontSize = tamanhoOriginal + "pt";
+        });
+        //#endregion
+    </script>
+</body>
+</html>
