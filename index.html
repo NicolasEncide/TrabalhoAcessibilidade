@@ -8,6 +8,10 @@
     <style>
         :root{
             --padding: 10px;
+            --blur: 0px;
+            --contrast: 1;
+            --saturate: 1;
+            --brightness: 1;
         }
         body{
             position: relative;
@@ -33,7 +37,8 @@
             width: 100%;
             max-width: 400px;
             height: auto;
-            filter: blur(0px) saturate(1) contrast(1) brightness(1);
+            filter: blur(var(--blur)) saturate(var(--saturate)) contrast(var(--contrast)) brightness(var(--brightness));
+            transition: filter 0.3s ease;
         }
         .imagem{
             display: flex;
@@ -104,20 +109,24 @@
         const desfoqueRange = document.getElementById("desfoqueRange");
         const constrasteRange = document.getElementById("constrasteRange");
 
+        function filterSet(nomePropriedade, valor) {
+            document.documentElement.style.setProperty(nomePropriedade, valor);
+          }
+
         brilhoRange.addEventListener('input', () => {
-            document.getElementById("BCSDimg").style.filter = `brightness(${brilhoRange.value})`;
+            filterSet("--brightness", brilhoRange.value);
         });
 
         saturacaoRange.addEventListener('input', () => {
-            document.getElementById("BCSDimg").style.filter = `saturate(${saturacaoRange.value})`;
+            filterSet("--saturate", saturacaoRange.value);
         });
 
         desfoqueRange.addEventListener('input', () => {
-            document.getElementById("BCSDimg").style.filter = `blur(${desfoqueRange.value}px)`;
+            filterSet("--blur", desfoqueRange.value + "px");
         });
 
         constrasteRange.addEventListener('input', () => {
-            document.getElementById("BCSDimg").style.filter = `contrast(${constrasteRange.value})`;
+            filterSet("--contrast", constrasteRange.value);
         });
 
         //#endregion
