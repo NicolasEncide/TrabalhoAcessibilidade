@@ -5,111 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessibilidade</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <style>
-        :root{
-            --padding: 10px;
-            --blur: 0px;
-            --contrast: 1;
-            --saturate: 1;
-            --brightness: 1;
-        }
-        html{
-            position: relative;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 14pt;
-        }
-        body{
-            margin: 0;
-            padding: 0 5px 5px 5px;
-        }
-        main{
-            display: flex;
-        }
-        header{
-            text-align: center;
-            background-color: black;
-            height: auto;
-            width: 100%;
-            color: white;
-            position: fixed;
-            z-index: 1000;
-        }
-        section{
-            margin-top: 10%;
-        }
-        #navegacao{
-            position: fixed;
-            margin-left: 73%;
-            width: 25%;
-        }
-        #navegacao ul{
-            list-style-type: none;
-            text-indent: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        #navegacao li{
-            border: solid 3px red;
-            padding: 5px;
-            background-color: black;
-        }
-        #navegacao a{
-            text-decoration: none;
-            color: white;
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-        header h1{
-            color: white;
-        }
-        .img-container {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        #container{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 72%;
-        }
-        .texto{
-            width: 100%;
-            text-align: justify
-        }
-        .conteudo{
-            border: 3px solid black;
-            width: 100%;
-            height: auto;
-            padding: var(--padding);
-            position: relative;
-            overflow: hidden;
-        }
-        #BCSD img{
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            filter: blur(var(--blur)) saturate(var(--saturate)) contrast(var(--contrast)) brightness(var(--brightness));
-            transition: filter 0.2s ease;
-        }
-        #tamanhoFonte{
-            overflow: hidden;
-            height: 100px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="Styles/style.css" type="text/css">
 </head>
 <body>
     <header>
-        <h1>Acessibilidade</h1>
+        <h1><strong>ACESSIBILIDADE</strong></h1>
     </header>
     <main>
         <section id="container">
             <div class="conteudo" id="BCSD">
-                <h2>Brilho, Constraste, Saturação e Desfoque</h2>
+                <h2 id="h2BCSD">Brilho, Constraste, Saturação e Desfoque</h2>
                 <ul>
                     <li>
                         <strong>Brilho: </strong>Serve para ajustar a quantidade de luz de um elemento ou imagem, permitindo controlar o quão claro ou escuro ele aparece.
@@ -136,33 +41,94 @@
                 <div class="img-container"><img src="Images/teste.jpg" alt="Imagem aqui"></div>
             </div>
 
-            <div class="conteudo" id="tamanhofonte">
-                <h2>Tamanho da Fonte</h2>
-                <div class="texto" id="tamanhoFonte">
-                    <p>
-                        O tamanho da fonte é crucial para garantir a leitura confortável e acessível em páginas da web. Ele ajuda a atender diferentes públicos, incluindo pessoas com dificuldades visuais, permitindo que o texto seja claro e compreensível em diferentes dispositivos e configurações.
-                    </p>
-                </div>
+            <div class="conteudo">
+                <h2 id="fonte">Tamanho da Fonte</h2>
                 <div class="comandos">
                     <label for="efeito">Tamanho da Fonte: </label>
                     <button id="buttonAumentar">Aumentar</button>
                     <button id="buttonDiminuir">Diminuir</button>
                 </div>
+                <div class="texto" id="tamanhoFonte">
+                    <p>
+                        O tamanho da fonte é crucial para garantir a leitura confortável e acessível em páginas da web. Ele ajuda a atender diferentes públicos, incluindo pessoas com dificuldades visuais, permitindo que o texto seja claro e compreensível em diferentes dispositivos e configurações.
+                    </p>
+                </div>
             </div>
 
-            <div class="conteudo" id="tamanhoFonte">
-                <h2>Vídeo</h2>
+            <div class="conteudo">
+                <h2 id="video">Vídeo</h2>
                 <div class="texto">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, cupiditate beatae vitae quidem impedit vel corporis fugiat ratione fuga, soluta quia. Consectetur iste deserunt et fuga minus ea provident nobis?</p>
+                    <p>O vídeo é uma ferramenta essencial para comunicação e aprendizado, mas sua acessibilidade é fundamental. Recursos como legendas, audiodescrição e linguagem de sinais ajudam pessoas com diferentes necessidades a compreender o conteúdo. A inclusão desses elementos garante que mais pessoas possam consumir informações de forma equitativa e acessível.</p>
                 </div>
                 <div class="comandos">
                     <video controls>
-                        <source src="Images/videoplayback.mp4" type="video/mp4">
-                        <track src="" kind="subtitles" srclang="pt" label="Português">
+                        <source src="Images/video.mp4" type="video/mp4">
+                        <track src="#" kind="subtitles" srclang="pt" label="Português">
                         Seu navegador não suporta vídeos HTML5.
                     </video>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/23qSEIYo8o8?si=Hnc12nobcu1RA1G_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dk49RaiYwIw?si=49Sh0RY3lQtYpdoG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
+            </div>
+
+            <div class="conteudo">
+                <h2 id="captcha">CAPTCHA com Texto Distorcido e Leve Embaçamento</h2>
+                <p>
+                    CAPTCHA é um sistema de segurança que identifica humanos e bots por meio de testes simples. 
+                    Ele protege sites contra acessos automatizados. Pode envolver reconhecer imagens, digitar códigos 
+                    ou resolver desafios. É essencial para a segurança online.
+                </p>
+                <canvas id="captchaCanvas" width="250" height="80" aria-label="Imagem contendo um texto CAPTCHA"></canvas>
+                <br>
+                <label for="captchaInput">Digite o texto acima:</label><br>
+                <input type="text" id="captchaInput" required>
+              
+                <button onclick="verificarCaptcha()">Verificar</button>
+                <p class="erro" id="mensagemErro"></p>
+            </div>
+
+            <div class="conteudo">
+                <h2 id="formulario">Formulário</h2>
+                <p>
+                    Um formulário HTML acessível deve ser projetado para garantir que todos os usuários, 
+                    incluindo aqueles com deficiência, possam interagir com ele de maneira eficiente. 
+                    Isso envolve o uso de elementos semânticos adequados, como label para associar campos 
+                    de entrada aos seus respectivos textos descritivos, garantindo que leitores de tela 
+                    possam interpretar corretamente as informações.
+                </p>
+                <div id="form-container">
+                    <div>
+                        <form id="form">
+                            <label for="nome">Nome:</label>
+                            <input type="text" id="nome" required><br><br>
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" required><br><br>
+                            <label for="tel">Telefone:</label>
+                            <input type="tel" maxlength="15" id="tel" required><br><br>
+                            <button type="submit">Enviar</button>
+                        </form>
+                    </div>
+                    <div>
+                        <table id="tabela">
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Telefone</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conteudo">
+                <h2 id="temaEscuro">Tema Escuro</h2>
+                <p>
+                    O tema escuro é uma opção de interface que altera as cores do sistema, 
+                    aplicativos ou sites para tons mais escuros, reduzindo o brilho e tornando 
+                    a visualização mais confortável, especialmente em ambientes com pouca luz. 
+                    Além de reduzir o cansaço visual, ele pode economizar bateria em dispositivos com telas OLED.
+                </p>
+                
+                <button id="btnEscuro">Tema Escuro</button>
             </div>
             
         </section>
@@ -171,60 +137,16 @@
             <nav>
                 <ul>
                     <li><a href="#BCSD">Brilho, Contraste, Saturação, Desfoque</a></li>
-                    <li><a href="#tamanhofonte">Tamanho da Fonte</a></li>
+                    <li><a href="#fonte">Tamanho da Fonte</a></li>
+                    <li><a href="#video">Vídeo</a></li>
+                    <li><a href="#captcha">CAPTCHA</a></li>
+                    <li><a href="#formulario">Formulário</a></li>
+                    <li><a href="#temaEscuro">Tema Escuro</a></li>
                 </ul>
             </nav>
         </section>
     </main>
 
-    <footer>
-
-    </footer>
-
-    <script>
-        //#region Brilho, Saturação, Desfoque, Contraste    
-        const brilhoRange = document.getElementById("brilhoRange");
-        const saturacaoRange = document.getElementById("saturacaoRange");
-        const desfoqueRange = document.getElementById("desfoqueRange");
-        const constrasteRange = document.getElementById("constrasteRange");
-
-        function filterSet(nomePropriedade, valor) {
-            document.documentElement.style.setProperty(nomePropriedade, valor);
-          }
-
-        brilhoRange.addEventListener('input', () => {
-            filterSet("--brightness", brilhoRange.value);
-        });
-
-        saturacaoRange.addEventListener('input', () => {
-            filterSet("--saturate", saturacaoRange.value);
-        });
-
-        desfoqueRange.addEventListener('input', () => {
-            filterSet("--blur", desfoqueRange.value + "px");
-        });
-
-        constrasteRange.addEventListener('input', () => {
-            filterSet("--contrast", constrasteRange.value);
-        });
-
-        //#endregion
-        //#region Tamanho da Fonte
-        let tamanhoOriginal = 14;
-
-        const buttonAumentar = document.getElementById("buttonAumentar");
-        const buttonDiminuir = document.getElementById("buttonDiminuir");
-
-        buttonAumentar.addEventListener('click', function(){
-            if (tamanhoOriginal < 22){tamanhoOriginal += 2;}
-            document.getElementById("tamanhoFonte").style.fontSize = tamanhoOriginal + "pt";
-        });
-
-        buttonDiminuir.addEventListener('click', function(){
-            if (tamanhoOriginal > 8){tamanhoOriginal -= 2;}
-            document.getElementById("tamanhoFonte").style.fontSize = tamanhoOriginal + "pt";
-        });
-        //#endregion
-    </script>
+    <script src="Scripts/script.js"></script>
 </body>
 </html>
