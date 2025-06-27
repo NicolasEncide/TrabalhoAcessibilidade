@@ -2,7 +2,7 @@
 const brilhoRange = document.getElementById("brilhoRange"),
     saturacaoRange = document.getElementById("saturacaoRange"),
     desfoqueRange = document.getElementById("desfoqueRange"),
-    constrasteRange = document.getElementById("constrasteRange");
+    contrasteRange = document.getElementById("contrasteRange");
 
 const filterSet = (nomePropriedade, valor) => {
     document.documentElement.style.setProperty(nomePropriedade, valor);
@@ -20,8 +20,8 @@ desfoqueRange.addEventListener('input', () => {
     filterSet("--blur", desfoqueRange.value + "px");
 });
 
-constrasteRange.addEventListener('input', () => {
-    filterSet("--contrast", constrasteRange.value);
+contrasteRange.addEventListener('input', () => {
+    filterSet("--contrast", contrasteRange.value);
 });
 //#endregion
 //#region Tamanho da Fonte
@@ -50,7 +50,7 @@ function gerarTexto() {
     const caracteres = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     let texto = '';
     for (let i = 0; i < 5; i++) {
-    texto += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+        texto += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
     }
     return texto;
 }
@@ -138,4 +138,38 @@ document.getElementById("btnEscuro").addEventListener("click", () => {
     document.getElementById("navegacao").classList.toggle("escuro-container");
 });
 
+//#endregion
+//#region Modo para Daltônicos
+const corNormal = () => {
+    document.querySelectorAll("#coresContainer div").forEach(div => {
+        if (div.id === "vermelho") div.style.backgroundColor = "rgb(255,0,0)"
+        if (div.id === "azul") div.style.backgroundColor = "rgb(0,0,255)"
+        if (div.id === "verde") div.style.backgroundColor = "rgb(0,255,0)"
+        if (div.id === "amarelo") div.style.backgroundColor = "rgb(255,255,0)"
+    });
+}
+const corProtanopia = () => {
+    document.querySelectorAll("#coresContainer div").forEach(div => {
+        if (div.id === "azul") div.style.backgroundColor = "rgb(0,102,153)";
+        if (div.id === "vermelho") div.style.backgroundColor = "rgb(102,51,0)";
+        if (div.id === "amarelo") div.style.backgroundColor = "rgb(204,178,102)";
+        if (div.id === "verde") div.style.backgroundColor = "rgb(85,107,47)";
+    });
+}
+const corTritanopia = () => {
+    document.querySelectorAll("#coresContainer div").forEach(div => {
+        if (div.id === "azul") div.style.backgroundColor = "rgb(75,0,130)";
+        if (div.id === "vermelho") div.style.backgroundColor = "rgb(178,34,34)";
+        if (div.id === "amarelo") div.style.backgroundColor = "rgb(255,182,193)";
+        if (div.id === "verde") div.style.backgroundColor = "rgb(85,107,47)";
+    });
+}
+const corDeuteranopia = () => {
+    document.querySelectorAll("#coresContainer div").forEach(div => {
+        if (div.id === "azul") div.style.backgroundColor = "rgb(0,51,102)";
+        if (div.id === "vermelho") div.style.backgroundColor = "rgb(102,0,153)";
+        if (div.id === "amarelo") div.style.backgroundColor = "rgb(204, 153, 0)";
+        if (div.id === "verde") div.style.backgroundColor = "rgb(96,130,150)";
+    });
+}
 //#endregion

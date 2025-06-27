@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessibilidade</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="Styles/style.css" type="text/css">
 </head>
 <body>
@@ -14,7 +13,7 @@
     <main>
         <section id="container">
             <div class="conteudo" id="BCSD">
-                <h2 id="h2BCSD">Brilho, Constraste, Saturação e Desfoque</h2>
+                <h2 id="h2BCSD">Brilho, Contraste, Saturação e Desfoque</h2>
                 <ul>
                     <li>
                         <strong>Brilho: </strong>Serve para ajustar a quantidade de luz de um elemento ou imagem, permitindo controlar o quão claro ou escuro ele aparece.
@@ -29,14 +28,16 @@
                         <strong>Desfoque: </strong>Serve para suavizar ou borrar uma imagem, frequentemente usado para efeitos visuais, como criar foco em uma área específica.
                     </li>
                 </ul>
-                <label for="efeito">Brilho: </label>
-                <input type="range" id="brilhoRange" min="0" max="2" step="0.1" value="1">
-                <label for="efeito">Constraste: </label>
-                <input type="range" id="constrasteRange" min="0" max="2" step="0.1" value="1">
-                <label for="efeito">Saturação: </label>
-                <input type="range" id="saturacaoRange" min="0" max="2" step="0.1" value="1">
-                <label for="efeito">Desfoque: </label>
-                <input type="range" id="desfoqueRange" min="0" max="2" step="0.1" value="0">
+                <div id="seletoresRange">
+                    <label for="brilhoRange">Brilho: </label>
+                    <input type="range" id="brilhoRange" min="0" max="2" step="0.1" value="1">
+                    <label for="contrasteRange">Contraste: </label>
+                    <input type="range" id="contrasteRange" min="0" max="2" step="0.1" value="1">
+                    <label for="saturacaoRange">Saturação: </label>
+                    <input type="range" id="saturacaoRange" min="0" max="2" step="0.1" value="1">
+                    <label for="desfoqueRange">Desfoque: </label>
+                    <input type="range" id="desfoqueRange" min="0" max="2" step="0.1" value="0">
+                </div>
                 <br><br>
                 <div class="img-container"><img src="Images/teste.jpg" alt="Imagem aqui"></div>
             </div>
@@ -45,8 +46,8 @@
                 <h2 id="fonte">Tamanho da Fonte</h2>
                 <div class="comandos">
                     <label for="efeito">Tamanho da Fonte: </label>
-                    <button id="buttonAumentar">Aumentar</button>
-                    <button id="buttonDiminuir">Diminuir</button>
+                    <button id="buttonAumentar" aria-label="Aumentar fonte">Aumentar</button>
+                    <button id="buttonDiminuir" aria-label="Diminuir fonte">Diminuir</button>
                 </div>
                 <div class="texto" id="tamanhoFonte">
                     <p>
@@ -63,7 +64,7 @@
                 <div class="comandos">
                     <video controls>
                         <source src="Images/video.mp4" type="video/mp4">
-                        <track src="#" kind="subtitles" srclang="pt" label="Português">
+                        <track src="Images/legenda.srt" kind="subtitles" srclang="pt" label="Português">     <!--Colocar legendas no src se disponíveis-->
                         Seu navegador não suporta vídeos HTML5.
                     </video>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/dk49RaiYwIw?si=49Sh0RY3lQtYpdoG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -104,7 +105,7 @@
                             <input type="email" id="email" required><br><br>
                             <label for="tel">Telefone:</label>
                             <input type="tel" maxlength="15" id="tel" required><br><br>
-                            <button type="submit">Enviar</button>
+                            <button type="submit" aria-label="Enviar dados do formulário">Enviar</button>
                         </form>
                     </div>
                     <div>
@@ -130,18 +131,42 @@
                 
                 <button id="btnEscuro">Tema Escuro</button>
             </div>
+
+            <div class="conteudo">
+                <h2 id="modoDaltonico">Modo de Cores para Daltônicos</h2>
+                <p>
+                    O modo para daltônicos é uma funcionalidade de acessibilidade que ajusta as cores do site para 
+                    torná-las mais distinguíveis para pessoas com deficiências na percepção de cores, como protanopia, 
+                    deuteranopia ou tritanopia. Ele ajuda a garantir que informações visuais sejam claras e compreensíveis 
+                    para todos, independentemente da forma como enxergam as cores.
+                </p>
+                <div id="coresContainer">
+                    <div id="vermelho"></div>
+                    <div id="verde"></div>
+                    <div id="azul"></div>
+                    <div id="amarelo"></div>
+                </div>
+                <br>
+                <div id="buttonsContainer">
+                    <button onclick="corNormal()">Normal</button>
+                    <button onclick="corDeuteranopia()">Deuteranopia</button>
+                    <button onclick="corProtanopia()">Protanopia</button>
+                    <button onclick="corTritanopia()">Tritanopia</button>
+                </div>
+            </div>
             
         </section>
 
         <section id="navegacao">
             <nav>
                 <ul>
-                    <li><a href="#BCSD">Brilho, Contraste, Saturação, Desfoque</a></li>
-                    <li><a href="#fonte">Tamanho da Fonte</a></li>
-                    <li><a href="#video">Vídeo</a></li>
-                    <li><a href="#captcha">CAPTCHA</a></li>
-                    <li><a href="#formulario">Formulário</a></li>
-                    <li><a href="#temaEscuro">Tema Escuro</a></li>
+                    <li><a href="#BCSD" aria-label="Sessão botões de edição de imagem">Brilho, Contraste, Saturação, Desfoque</a></li>
+                    <li><a href="#fonte" aria-label="Sessão tamanho da fonte">Tamanho da Fonte</a></li>
+                    <li><a href="#video" aria-label="Sessão vídeo">Vídeo</a></li>
+                    <li><a href="#captcha" aria-label="Sessão CAPTCHA">CAPTCHA</a></li>
+                    <li><a href="#formulario" aria-label="Sessão formulário">Formulário</a></li>
+                    <li><a href="#temaEscuro" aria-label="Sessão tema escuro">Tema Escuro</a></li>
+                    <li><a href="#modoDaltonico" aria-label="Sessão modo daltônico">Modo para Daltônicos</a></li>
                 </ul>
             </nav>
         </section>
